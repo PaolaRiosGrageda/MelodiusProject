@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MelodiusModels.Base
 {
-    internal class BaseEntity
+    public class BaseEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

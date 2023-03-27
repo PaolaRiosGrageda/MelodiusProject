@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MelodiusDataAccess\MelodiusDataAccess.csproj" />
+    <ProjectReference Include="..\MelodiusDataTransfer\MelodiusDataTransfer.csproj" />
+    <ProjectReference Include="..\MelodiusModels\MelodiusModels.csproj" />
+  </ItemGroup>
+
 </Project>

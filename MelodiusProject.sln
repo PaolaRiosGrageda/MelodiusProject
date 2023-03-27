@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodiusModels", "MelodiusM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodiusDataTransfer", "MelodiusDataTransfer\MelodiusDataTransfer.csproj", "{163B0853-E0EA-4586-90A4-B66EC21F2D7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodiusDataAccess", "MelodiusDataAccess\MelodiusDataAccess.csproj", "{AAC5D893-0CA3-47E4-A2A7-1F5317F5B784}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{163B0853-E0EA-4586-90A4-B66EC21F2D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{163B0853-E0EA-4586-90A4-B66EC21F2D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{163B0853-E0EA-4586-90A4-B66EC21F2D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC5D893-0CA3-47E4-A2A7-1F5317F5B784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC5D893-0CA3-47E4-A2A7-1F5317F5B784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC5D893-0CA3-47E4-A2A7-1F5317F5B784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC5D893-0CA3-47E4-A2A7-1F5317F5B784}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
