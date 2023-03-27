@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodiusProject", "MelodiusProject\MelodiusProject.csproj", "{438D99DA-C2E9-4C59-A411-558651330616}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MelodiusAPI", "MelodiusProject\MelodiusAPI.csproj", "{438D99DA-C2E9-4C59-A411-558651330616}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodiusServices", "MelodiusServices\MelodiusServices.csproj", "{CD052950-DB01-4C11-A85A-F117A8381DDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodiusModels", "MelodiusModels\MelodiusModels.csproj", "{5315DD2B-2901-4185-98D5-3C0ECADAC392}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodiusDataTransfer", "MelodiusDataTransfer\MelodiusDataTransfer.csproj", "{163B0853-E0EA-4586-90A4-B66EC21F2D7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodiusDataAccess", "MelodiusDataAccess\MelodiusDataAccess.csproj", "{AAC5D893-0CA3-47E4-A2A7-1F5317F5B784}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{438D99DA-C2E9-4C59-A411-558651330616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{438D99DA-C2E9-4C59-A411-558651330616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{438D99DA-C2E9-4C59-A411-558651330616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD052950-DB01-4C11-A85A-F117A8381DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD052950-DB01-4C11-A85A-F117A8381DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD052950-DB01-4C11-A85A-F117A8381DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD052950-DB01-4C11-A85A-F117A8381DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5315DD2B-2901-4185-98D5-3C0ECADAC392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5315DD2B-2901-4185-98D5-3C0ECADAC392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5315DD2B-2901-4185-98D5-3C0ECADAC392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5315DD2B-2901-4185-98D5-3C0ECADAC392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{163B0853-E0EA-4586-90A4-B66EC21F2D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{163B0853-E0EA-4586-90A4-B66EC21F2D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{163B0853-E0EA-4586-90A4-B66EC21F2D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{163B0853-E0EA-4586-90A4-B66EC21F2D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC5D893-0CA3-47E4-A2A7-1F5317F5B784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC5D893-0CA3-47E4-A2A7-1F5317F5B784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC5D893-0CA3-47E4-A2A7-1F5317F5B784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC5D893-0CA3-47E4-A2A7-1F5317F5B784}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
