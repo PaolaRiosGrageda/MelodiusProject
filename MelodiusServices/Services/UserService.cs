@@ -19,7 +19,7 @@ namespace MelodiusServices.Services
         public int AddNew(UserDto userDto)
         {
             User user = UserMapper.DtoToModel(userDto);
-            return _userRepository.Create(user).Id;
+            return _userRepository.CreateAsync(user).Id;
         }
 
         public int Delete(int id)
