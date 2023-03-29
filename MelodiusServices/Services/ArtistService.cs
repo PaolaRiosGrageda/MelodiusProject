@@ -17,7 +17,7 @@ namespace MelodiusServices.Services
         public int AddNew(ArtistDto artistDto)
         {
             Artist artist = ArtistMapper.DtoToModel(artistDto);
-            return _artistRepository.Create(artist).Id;
+            return _artistRepository.CreateAsync(artist).Id;
         }
 
         public int Delete(int id)
