@@ -1,4 +1,5 @@
-﻿using MelodiusDataAccess.Repository.Interfaces;
+﻿using MelodiusDataAccess.Repository.Implementation;
+using MelodiusDataAccess.Repository.Interfaces;
 using MelodiusDataTransfer;
 using MelodiusDataTransfer.Mappers;
 using MelodiusModels;
@@ -19,10 +20,11 @@ namespace MelodiusServices.Services
         {
             _songRepository= songRepository;
         }
-        public int AddNew(SongDto songDto)
+        public async Task<int> AddNew(SongDto songDto)
         {
             Song song = SongMapper.DtoToModel(songDto);
-            return _songRepository.CreateAsync(song).Id;
+            var newSong = await _songRepository.CreateAsync(song);
+            return newSong.Id;
         }
 
         public int Delete(int id)
@@ -30,9 +32,9 @@ namespace MelodiusServices.Services
             return _songRepository.Delete(id).Id;
         }
 
-        public List<SongDto> GetAll()
+        public async Task<List<SongDto>> GetAll()
         {
-            var songs = _songRepository.GetAll();
+            var songs = await _songRepository.GetAllAsync();
             var songDto = songs.Select(SongMapper.ModelToDto).ToList();  
             return songDto;
         }
