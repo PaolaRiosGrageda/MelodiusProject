@@ -22,7 +22,7 @@ namespace MelodiusServices.Services
         public int AddNew(AlbumDto albumDto)
         {
             Album album = AlbumMapper.DtoToModel(albumDto);
-            return _albumRepository.Create(album).Id;
+            return _albumRepository.CreateAsync(album).Id;
         }
 
         public int Delete(int id)
