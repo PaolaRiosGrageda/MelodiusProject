@@ -1,13 +1,8 @@
 ﻿using MelodiusModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MelodiusDataTransfer.Mappers
 {
-    public class AlbumMapper
+    public static class AlbumMapper
     {
         public static Album DtoToModel(AlbumDto artistDto)
         => new Album()
