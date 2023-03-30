@@ -2,7 +2,7 @@
 
 namespace MelodiusDataTransfer.Mappers
 {
-    public class ArtistMapper
+    public static class ArtistMapper
     {
         public static Artist DtoToModel(ArtistDto artistDto)
         => new Artist()
