@@ -2,8 +2,7 @@
 
 namespace MelodiusServices.Interface
 {
-    public interface ISongService : IBaseService<SongDto>
+    public interface IPlaylistService : IBaseService<PlaylistDto>
     {
-
     }
 }
