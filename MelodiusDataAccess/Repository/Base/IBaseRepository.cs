@@ -9,7 +9,7 @@ namespace MelodiusDataAccess.Repository.Base
 {
     public interface IBaseRepository<TEntity> where TEntity : BaseEntity
     {
-        List<TEntity> GetAll();
+        Task <List<TEntity>> GetAllAsync();
         TEntity GetOne(int id);
         Task<TEntity> CreateAsync(TEntity entity);
         TEntity Update(TEntity entity);

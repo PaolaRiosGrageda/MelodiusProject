@@ -29,9 +29,9 @@ namespace MelodiusDataAccess.Repository.Base
             return entityToDelete;
         }
 
-        public List<TEntity> GetAll()
+        public async Task<List<TEntity>> GetAllAsync()
         {
-            return _dbSet.ToList();
+            return await _dbSet.ToListAsync();
         }
 
         public TEntity GetOne(int id)
