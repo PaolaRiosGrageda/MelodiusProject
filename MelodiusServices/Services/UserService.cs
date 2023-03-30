@@ -45,6 +45,7 @@ namespace MelodiusServices.Services
             var user = UserMapper.DtoToModel(userDto);
             var userModel = _userRepository.Update(user);
             return UserMapper.ModelToDto(userModel);
+
         }
     }
 }
