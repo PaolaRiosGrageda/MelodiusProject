@@ -15,17 +15,17 @@ namespace MelodiusDataAccess.Repository.Base
             _dbSet = _melodiusContext.Set<TEntity>();
         }
 
-        public TEntity Create(TEntity entity)
+        public async Task<TEntity> CreateAsync(TEntity entity)
         {
-            var createdEntity = _dbSet.Add(entity).Entity;
-            _melodiusContext.SaveChanges();
+            var createdEntity = (await _dbSet.AddAsync(entity)).Entity;
+            await _melodiusContext.SaveChangesAsync();
             return createdEntity;
         }
 
-        public TEntity Delete(int id)
+        public  TEntity Delete(int id)
         {
-            var entityToDelete = _dbSet.Find(id);
-            _dbSet.Remove(entityToDelete);
+            var entityToDelete =  _dbSet.Find(id);
+              _dbSet.Remove(entityToDelete);
             return entityToDelete;
         }
 
