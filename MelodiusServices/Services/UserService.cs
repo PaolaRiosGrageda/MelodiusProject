@@ -47,7 +47,7 @@ namespace MelodiusServices.Services
             return UserMapper.ModelToDto(userModel);
 
         }
-
+        // preguntar a los chicos
         int IBaseService<UserDto>.AddNew(UserDto baseDto)
         {
             throw new NotImplementedException();
