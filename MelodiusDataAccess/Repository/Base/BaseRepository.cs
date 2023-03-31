@@ -40,10 +40,10 @@ namespace MelodiusDataAccess.Repository.Base
             return _dbSet.Where(x => x.Id == id).First();
         }
 
-        public TEntity Update(TEntity entity)
+        public async Task<TEntity> Update(TEntity entity)
         {
             _dbSet.Update(entity);
-            _melodiusContext.SaveChanges();
+            await _melodiusContext.SaveChangesAsync();
             return entity;
         }
     }
