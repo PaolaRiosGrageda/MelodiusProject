@@ -39,10 +39,10 @@ namespace MelodiusServices.Services
             return PlaylistMapper.ModelToDto(playlist);
         }
 
-        public PlaylistDto Update(PlaylistDto playlistDto)
+        public async Task<PlaylistDto> Update(PlaylistDto playlistDto)
         {
             var playlist = PlaylistMapper.DtoToModel(playlistDto);
-            var playlistModel = _playlistRepository.Update(playlist);
+            var playlistModel = await _playlistRepository.Update(playlist);
             return PlaylistMapper.ModelToDto(playlistModel);
         }
     }

@@ -41,10 +41,10 @@ namespace MelodiusDataAccess.Repository.Base
             return findObject;
         }
 
-        public TEntity Update(TEntity entity)
+        public async Task<TEntity> Update(TEntity entity)
         {
             _dbSet.Update(entity);
-            _melodiusContext.SaveChanges();
+            await _melodiusContext.SaveChangesAsync();
             return entity;
         }
     }

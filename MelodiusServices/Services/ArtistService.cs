@@ -39,10 +39,10 @@ namespace MelodiusServices.Services
             return ArtistMapper.ModelToDto(artist);
         }
 
-        public ArtistDto Update(ArtistDto artistDto)
+        public async Task<ArtistDto> Update(ArtistDto artistDto)
         {
             var artist = ArtistMapper.DtoToModel(artistDto);
-            var artistModel = _artistRepository.Update(artist);
+            var artistModel = await _artistRepository.Update(artist);
             return ArtistMapper.ModelToDto(artistModel);
         }
     }
