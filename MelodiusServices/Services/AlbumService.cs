@@ -44,10 +44,10 @@ namespace MelodiusServices.Services
             return AlbumMapper.ModelToDto(album);
         }
 
-        public AlbumDto Update(AlbumDto albumDto)
+        public async Task<AlbumDto> Update(AlbumDto albumDto)
         {
             var album = AlbumMapper.DtoToModel(albumDto);
-            var albumModel = _albumRepository.Update(album);
+            var albumModel = await _albumRepository.Update(album);
             return AlbumMapper.ModelToDto(albumModel);
         }
     }
