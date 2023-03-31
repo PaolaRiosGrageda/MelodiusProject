@@ -22,7 +22,7 @@ namespace MelodiusDataAccess.Repository.Base
             return createdEntity;
         }
 
-        public  TEntity Delete(int id)
+        public async Task<TEntity> Delete(int id)
         {
             var entityToDelete =  _dbSet.Find(id);
               _dbSet.Remove(entityToDelete);

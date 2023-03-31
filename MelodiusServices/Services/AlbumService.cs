@@ -26,7 +26,7 @@ namespace MelodiusServices.Services
             return newAlbum.Id;
         }
 
-        public int Delete(int id)
+        public async Task<int> Delete(int id)
         {
             return _albumRepository.Delete(id).Id;
         }

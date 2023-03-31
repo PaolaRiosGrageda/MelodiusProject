@@ -23,9 +23,10 @@ namespace MelodiusServices.Services
             return newUser.Id;
         }
 
-        public int Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            return _userRepository.Delete(id).Id;
+            var entityDeleted = await _userRepository.Delete(id);
+            return entityDeleted.Id;
         }
 
         public async Task<List<UserDto>> GetAll()
@@ -46,6 +47,9 @@ namespace MelodiusServices.Services
             var user = UserMapper.DtoToModel(userDto);
             var userModel = await _userRepository.Update(user);
             return UserMapper.ModelToDto(userModel);
+
         }
+
+
     }
 }
