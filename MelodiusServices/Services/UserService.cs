@@ -7,7 +7,7 @@ using MelodiusServices.Interface;
 
 namespace MelodiusServices.Services
 {
-    internal class UserService: IUserService
+    public class UserService: IUserService
     {
         private readonly IUserRepository _userRepository;
 
@@ -16,10 +16,11 @@ namespace MelodiusServices.Services
             _userRepository = userRepository;
         }
 
-        public int AddNew(UserDto userDto)
+        public async Task<int> AddNew(UserDto userDto)
         {
             User user = UserMapper.DtoToModel(userDto);
-            return _userRepository.CreateAsync(user).Id;
+            var newUser = await _userRepository.CreateAsync(user);
+            return newUser.Id;
         }
 
         public int Delete(int id)
@@ -27,9 +28,9 @@ namespace MelodiusServices.Services
             return _userRepository.Delete(id).Id;
         }
 
-        public List<UserDto> GetAll()
+        public async Task<List<UserDto>> GetAll()
         {
-            var users = _userRepository.GetAll();
+            var users = await _userRepository.GetAllAsync();
             var usersDto = users.Select(UserMapper.ModelToDto).ToList();
             return usersDto;
         }

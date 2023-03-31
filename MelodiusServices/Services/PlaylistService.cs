@@ -14,10 +14,11 @@ namespace MelodiusServices.Services
         {
             _playlistRepository = playlistRepository;
         }
-        public int AddNew(PlaylistDto playlistDto)
+        public async Task<int> AddNew(PlaylistDto playlistDto)
         {
             Playlist playlist = PlaylistMapper.DtoToModel(playlistDto);
-            return _playlistRepository.CreateAsync(playlist).Id;
+            var newPlayList = await _playlistRepository.CreateAsync(playlist);
+            return   newPlayList.Id;
         }
 
         public int Delete(int id)
@@ -25,9 +26,9 @@ namespace MelodiusServices.Services
             return _playlistRepository.Delete(id).Id;
         }
 
-        public List<PlaylistDto> GetAll()
+        public async Task< List<PlaylistDto>> GetAll()
         {
-            var playlists = _playlistRepository.GetAll();
+            var playlists = await _playlistRepository.GetAllAsync();
             var playlistsDto = playlists.Select(PlaylistMapper.ModelToDto).ToList();
             return playlistsDto;
         }

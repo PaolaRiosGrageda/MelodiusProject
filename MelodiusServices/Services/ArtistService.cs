@@ -14,10 +14,11 @@ namespace MelodiusServices.Services
         {
             _artistRepository = artistRepository;
         }
-        public int AddNew(ArtistDto artistDto)
+        public async Task <int> AddNew(ArtistDto artistDto)
         {
             Artist artist = ArtistMapper.DtoToModel(artistDto);
-            return _artistRepository.CreateAsync(artist).Id;
+            var newArtist = await _artistRepository.CreateAsync(artist);
+            return newArtist.Id;
         }
 
         public int Delete(int id)
@@ -25,10 +26,10 @@ namespace MelodiusServices.Services
             return _artistRepository.Delete(id).Id;
         }
 
-        public List<ArtistDto> GetAll()
+        public async Task<List<ArtistDto>> GetAll()
         {
-            var artists = _artistRepository.GetAll();
-            var artistsDto = artists.Select(ArtistMapper.ModelToDto).ToList();
+            var artists = await _artistRepository.GetAllAsync();
+            var artistsDto =  artists.Select(ArtistMapper.ModelToDto).ToList();
             return artistsDto;
         }
 
