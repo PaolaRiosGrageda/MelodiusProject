@@ -33,9 +33,9 @@ namespace MelodiusServices.Services
             return playlistsDto;
         }
 
-        public PlaylistDto GetById(int id)
+        public async Task<PlaylistDto> GetById(int id)
         {
-            var playlist = _playlistRepository.GetOne(id);
+            var playlist = await _playlistRepository.GetOneAsync(id);
             return PlaylistMapper.ModelToDto(playlist);
         }
 
