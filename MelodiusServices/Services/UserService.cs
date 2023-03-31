@@ -35,9 +35,9 @@ namespace MelodiusServices.Services
             return usersDto;
         }
 
-        public UserDto GetById(int id)
+        public async Task<UserDto> GetById(int id)
         {
-            var user = _userRepository.GetOne(id);
+            var user = await _userRepository.GetOneAsync(id);
             return UserMapper.ModelToDto(user);
         }
 

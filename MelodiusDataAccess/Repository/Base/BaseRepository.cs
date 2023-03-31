@@ -34,10 +34,11 @@ namespace MelodiusDataAccess.Repository.Base
             return await _dbSet.ToListAsync();
         }
 
-        public TEntity GetOne(int id)
+        public async Task<TEntity> GetOneAsync(int id)
         {
-            var test = _dbSet.Where(x => x.Id == id);
-            return _dbSet.Where(x => x.Id == id).First();
+            var test =  _dbSet.Where(x => x.Id == id);
+            var findObject =  _dbSet.Where(x => x.Id == id).First();
+            return findObject;
         }
 
         public async Task<TEntity> Update(TEntity entity)
