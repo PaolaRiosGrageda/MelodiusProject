@@ -25,7 +25,8 @@ namespace MelodiusServices.Services
 
         public async Task<int> Delete(int id)
         {
-            return _userRepository.Delete(id).Id;
+            var entityDeleted = await _userRepository.Delete(id);
+            return entityDeleted.Id;
         }
 
         public async Task<List<UserDto>> GetAll()
@@ -35,43 +36,20 @@ namespace MelodiusServices.Services
             return usersDto;
         }
 
-        public async Task<UserDto> GetById(int id)
+        public UserDto GetById(int id)
         {
             var user = _userRepository.GetOne(id);
             return UserMapper.ModelToDto(user);
         }
 
-        public async Task<UserDto> Update(UserDto userDto)
+        public UserDto Update(UserDto userDto)
         {
             var user = UserMapper.DtoToModel(userDto);
             var userModel = _userRepository.Update(user);
             return UserMapper.ModelToDto(userModel);
 
         }
-        // preguntar a los chicos
-        int IBaseService<UserDto>.AddNew(UserDto baseDto)
-        {
-            throw new NotImplementedException();
-        }
 
-        int IBaseService<UserDto>.Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
 
-        List<UserDto> IBaseService<UserDto>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        UserDto IBaseService<UserDto>.GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        UserDto IBaseService<UserDto>.Update(UserDto baseDto)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -6,6 +6,6 @@
         public T GetById(int id);
         public Task <int> AddNew(T baseDto);
         public T Update(T baseDto);
-        public int Delete(int id);
+        public Task<int> Delete(int id);
     }
 }

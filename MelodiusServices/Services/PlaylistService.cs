@@ -21,7 +21,7 @@ namespace MelodiusServices.Services
             return   newPlayList.Id;
         }
 
-        public int Delete(int id)
+        public async Task<int> Delete(int id)
         {
             return _playlistRepository.Delete(id).Id;
         }

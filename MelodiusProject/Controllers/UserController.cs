@@ -30,24 +30,24 @@ namespace MelodiusAPI.Controllers
             }
         }
 
-        [HttpPost()]
-        public async Task<ActionResult> AddNewUser([FromBody] UserDto user)
-        {
-            try
-            {
-                var newId = await _userService.AddNew(user);
-                var anonymouseResponse = new
-                {
-                    newId
-                };
-                return Ok(anonymouseResponse);
-            }
-            catch (Exception e)
-            {
-                var badResponse = new { error = e.Message };
-                return BadRequest(badResponse);
-            }
-        }
+        //[HttpPost()]
+        //public async Task<ActionResult> AddNewUser([FromBody] UserDto user)
+        //{
+        //    try
+        //    {
+        //        var newId = await _userService.AddNew(user);
+        //        var anonymouseResponse = new
+        //        {
+        //            newId
+        //        };
+        //        return Ok(anonymouseResponse);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        var badResponse = new { error = e.Message };
+        //        return BadRequest(badResponse);
+        //    }
+        //}
 
 
     }

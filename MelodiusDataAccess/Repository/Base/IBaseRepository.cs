@@ -13,6 +13,6 @@ namespace MelodiusDataAccess.Repository.Base
         TEntity GetOne(int id);
         Task<TEntity> CreateAsync(TEntity entity);
         TEntity Update(TEntity entity);
-        TEntity Delete(int id);
+        Task<TEntity> Delete(int id);
     }
 }

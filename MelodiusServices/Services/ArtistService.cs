@@ -21,9 +21,9 @@ namespace MelodiusServices.Services
             return newArtist.Id;
         }
 
-        public int Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            return _artistRepository.Delete(id).Id;
+            return  _artistRepository.Delete(id).Id;
         }
 
         public async Task<List<ArtistDto>> GetAll()
