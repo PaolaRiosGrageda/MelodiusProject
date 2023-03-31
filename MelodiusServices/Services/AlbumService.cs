@@ -26,7 +26,7 @@ namespace MelodiusServices.Services
             return newAlbum.Id;
         }
 
-        public int Delete(int id)
+        public async Task<int> Delete(int id)
         {
             return _albumRepository.Delete(id).Id;
         }
@@ -38,9 +38,9 @@ namespace MelodiusServices.Services
             return albumsDto;
         }
 
-        public AlbumDto GetById(int id)
+        public async Task<AlbumDto> GetById(int id)
         {
-            var album = _albumRepository.GetOne(id);
+            var album = await _albumRepository.GetOneAsync(id);
             return AlbumMapper.ModelToDto(album);
         }
 

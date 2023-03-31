@@ -27,7 +27,7 @@ namespace MelodiusServices.Services
             return newSong.Id;
         }
 
-        public int Delete(int id)
+        public async Task<int> Delete(int id)
         {
             return _songRepository.Delete(id).Id;
         }
@@ -39,9 +39,9 @@ namespace MelodiusServices.Services
             return songDto;
         }
 
-        public SongDto GetById(int id)
+        public async Task<SongDto> GetById(int id)
         {
-            var song = _songRepository.GetOne(id);
+            var song = await _songRepository.GetOneAsync(id);
             return SongMapper.ModelToDto(song);
         }
 

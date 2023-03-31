@@ -21,9 +21,9 @@ namespace MelodiusServices.Services
             return newArtist.Id;
         }
 
-        public int Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            return _artistRepository.Delete(id).Id;
+            return  _artistRepository.Delete(id).Id;
         }
 
         public async Task<List<ArtistDto>> GetAll()
@@ -33,9 +33,9 @@ namespace MelodiusServices.Services
             return artistsDto;
         }
 
-        public ArtistDto GetById(int id)
+        public async Task<ArtistDto> GetById(int id)
         {
-            var artist = _artistRepository.GetOne(id);
+            var artist = await _artistRepository.GetOneAsync(id);
             return ArtistMapper.ModelToDto(artist);
         }
 
