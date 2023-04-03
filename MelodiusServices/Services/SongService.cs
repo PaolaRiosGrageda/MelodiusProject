@@ -39,16 +39,16 @@ namespace MelodiusServices.Services
             return songDto;
         }
 
-        public SongDto GetById(int id)
+        public async Task<SongDto> GetById(int id)
         {
-            var song = _songRepository.GetOne(id);
+            var song = await _songRepository.GetOneAsync(id);
             return SongMapper.ModelToDto(song);
         }
 
-        public SongDto Update(SongDto songDto)
+        public async Task<SongDto> Update(SongDto songDto)
         {
             var song = SongMapper.DtoToModel(songDto);
-            var songModel = _songRepository.Update(song);
+            var songModel = await _songRepository.Update(song);
             return SongMapper.ModelToDto(songModel);
         }
     }
