@@ -4,7 +4,6 @@ namespace MelodiusDataTransfer.Mappers
 {
     public static class UserMapper
     {
-
         public static User DtoToModel(UserDto userDto)
         => new User()
         {
