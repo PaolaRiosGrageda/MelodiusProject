@@ -5,11 +5,10 @@ using MelodiusModels;
 
 namespace MelodiusDataAccess.Repository.Implementation
 {
-    public class SongRepository : BaseRepository<Song>, ISongRepository
+    public class AlbumSongRepository : BaseRepository<AlbumSong>, IAlbumSongRepository
     {
-        public SongRepository(MelodiusContext melodiusContext) : base(melodiusContext)
+        public AlbumSongRepository(MelodiusContext melodiusContext) : base(melodiusContext)
         {
-
         }
     }
 }
