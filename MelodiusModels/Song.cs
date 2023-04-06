@@ -14,5 +14,9 @@ namespace MelodiusModels
         public double Length { get; set; }
         public  string Genre { get; set; }
 
+        #region
+        public ICollection<AlbumSong> AlbumSongs { get; set; }
+        #endregion
+
     }
 }
