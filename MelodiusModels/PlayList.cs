@@ -11,6 +11,11 @@ namespace MelodiusModels
     {
         public string Title { get; set; }
         public string Description { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual ICollection<Song> Songs { get; set;}
       
     }
 }

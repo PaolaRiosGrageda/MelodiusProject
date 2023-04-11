@@ -14,6 +14,7 @@ namespace MelodiusDataAccess.Persistence
         public DbSet<Song> Songs { get; set; }
         public DbSet<Playlist> PlayLists { get; set; }
         public DbSet<Album> Albums { get; set; }
-
+        public DbSet<PlaylistSongs> PlaylistSongs { get; set; }
+        
     }
 }
