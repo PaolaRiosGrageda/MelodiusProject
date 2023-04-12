@@ -51,5 +51,10 @@ namespace MelodiusServices.Services
             var songModel = await _songRepository.Update(song);
             return SongMapper.ModelToDto(songModel);
         }
+        //public async Task<SongDto> GetByName(string name)
+        //{
+        //    var song = await _songRepository.GetOneAsync(name);
+        //    return SongMapper.ModelToDto(song);
+        //}
     }
 }

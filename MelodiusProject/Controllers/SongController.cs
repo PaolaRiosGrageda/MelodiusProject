@@ -49,7 +49,27 @@ namespace MelodiusAPI.Controllers
                 return BadRequest(badResponse);
             }
         }
+        //[HttpGet("SongNameQuery")]
+        //public async Task<ActionResult<Song>> GetSongName([FromQuery] string songName)
+        //{
+        //    var song= _songService.GetByname(songName);
+        //    return Ok(song);
+        //}
 
-       
+        [HttpPut()]
+        public async Task<ActionResult> UpdateSong([FromBody] SongDto song)
+        {
+            try
+            {
+                var songUdpated = await _songService.Update(song);
+                return Ok(songUdpated);
+            }
+            catch (Exception e)
+            {
+                var badResponse = new { error = e.Message };
+                return BadRequest(badResponse);
+            }
+        }
+
     }
 }
