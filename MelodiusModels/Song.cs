@@ -1,9 +1,5 @@
 ﻿using MelodiusModels.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MelodiusModels
 {
@@ -16,6 +12,8 @@ namespace MelodiusModels
 
         #region
         public ICollection<AlbumSong> AlbumSongs { get; set; }
+        public ICollection<ArtistSong>? ArtistSong { get; set; }
+        public ICollection<PlaylistSongs>? PlaylistSongs { get; set; }
         #endregion
 
     }

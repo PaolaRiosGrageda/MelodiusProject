@@ -15,7 +15,7 @@ namespace MelodiusModels
         /// <summary>
         /// 
         /// </summary>
-        public virtual ICollection<Song> Songs { get; set;}
+        public virtual ICollection<PlaylistSongs> PlaylistSongs { get; set;}
         public ICollection<UserPlayList>? UserPlayList { get; set; }
 
     }
