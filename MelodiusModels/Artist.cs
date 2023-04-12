@@ -11,6 +11,8 @@ namespace MelodiusModels
     {
         public string ArtistName { get; set; }
         public string Biography { get; set; }
-        public ICollection<Album>? Albums { get; set; }
+        public ICollection<Album> Albums { get; set; }
+
+        public ICollection<ArtistSong>? ArtistSong { get; set; }
     }
 }

@@ -36,6 +36,8 @@ builder.Services.AddScoped<ISongRepository, SongRepository>();
 builder.Services.AddScoped<IAlbumSongRepository, AlbumSongRepository>();
 
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
