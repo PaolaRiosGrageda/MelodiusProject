@@ -10,18 +10,18 @@ namespace MelodiusAPI.Controllers
     {
         private readonly IArtistService _artistsService;
 
-        public ArtistController(IArtistService bookService)
+        public ArtistController(IArtistService artistService)
         {
-            _artistsService = bookService;
+            _artistsService = artistService;
         }
 
 
         [HttpGet()]
-        public ActionResult<List<ArtistDto>> GetArtists()
+        public async Task<ActionResult<List<ArtistDto>>> GetArtists()
         {
             try
             {
-                var artists = _artistsService.GetAll();
+                var artists = await _artistsService.GetAll();
                 return Ok(artists);
             }
             catch (Exception e)
@@ -32,5 +32,38 @@ namespace MelodiusAPI.Controllers
 
         }
 
+        [HttpPost()]
+        public async Task<ActionResult> AddNewArtist([FromBody] ArtistDto artist)
+        {
+            try
+            {
+                var newId = await _artistsService.AddNew(artist);
+                var anonymousResponse = new
+                {
+                    newId
+                };
+                return Ok(anonymousResponse);
+            }
+            catch (Exception e)
+            {
+                var badResponse = new { error = e.Message };
+                return BadRequest(badResponse);
+            }
+        }
+
+        [HttpPut()]
+        public async Task<ActionResult> UpdateArtist([FromBody] ArtistDto artist)
+        {
+            try
+            {
+                var artistUdpated = await _artistsService.Update(artist);
+                return Ok(artistUdpated);
+            }
+            catch (Exception e)
+            {
+                var badResponse = new { error = e.Message };
+                return BadRequest(badResponse);
+            }
+        }
     }
 }
