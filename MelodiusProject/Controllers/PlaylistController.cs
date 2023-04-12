@@ -1,4 +1,6 @@
 ﻿using MelodiusDataTransfer;
+using MelodiusDataTransfer.Requests;
+using MelodiusDataTransfer.Responses;
 using MelodiusServices.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,22 +8,20 @@ namespace MelodiusAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PlaylistController : ControllerBase
+    public class PlaylistController: ControllerBase
     {
-        private readonly IPlaylistService _playlistsService;
-
+        private readonly IPlaylistService _playlistService;
         public PlaylistController(IPlaylistService playlistService)
         {
-            _playlistsService = playlistService;
+            _playlistService = playlistService;
         }
-
-
+        
         [HttpGet()]
         public async Task<ActionResult<List<PlaylistDto>>> GetPlaylists()
         {
             try
             {
-                var playlists = await _playlistsService.GetAll();
+                var playlists = await _playlistService.GetAll();
                 return Ok(playlists);
             }
             catch (Exception e)
@@ -37,12 +37,12 @@ namespace MelodiusAPI.Controllers
         {
             try
             {
-                var newId = await _playlistsService.AddNew(playlist);
-                var anonymousResponse = new
+                var newId = await _playlistService.AddNew(playlist);
+                var anonymouseResponse = new
                 {
                     newId
                 };
-                return Ok(anonymousResponse);
+                return Ok(anonymouseResponse);
             }
             catch (Exception e)
             {
@@ -58,6 +58,20 @@ namespace MelodiusAPI.Controllers
             {
                 var playlistUdpated = await _playlistsService.Update(playlist);
                 return Ok(playlistUdpated);
+            }
+            catch (Exception e)
+            {
+                var badResponse = new { error = e.Message };
+                return BadRequest(badResponse);
+            }
+        }
+        [HttpPost("CompletePlaylist")]
+        public async Task<ActionResult<CompletePlaylistResponse>> AddNewPlaylist(CompletePlaylistRequest playlist)
+        {
+            try
+            {
+                var response = await _playlistService.AddCompletePlaylist(playlist);
+                return Ok(response);
             }
             catch (Exception e)
             {

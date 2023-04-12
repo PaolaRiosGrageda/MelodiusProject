@@ -35,7 +35,9 @@ builder.Services.AddScoped<ISongRepository, SongRepository>();
 
 builder.Services.AddScoped<IAlbumSongRepository, AlbumSongRepository>();
 
+builder.Services.AddScoped<IUserPlaylistRepository, UserPlayListRepository>();
 
+builder.Services.AddScoped<IPlaylistSongsRepository, PlaylistSongsRepository>();
 
 
 var app = builder.Build();
