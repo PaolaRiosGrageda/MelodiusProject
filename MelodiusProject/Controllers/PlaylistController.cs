@@ -51,6 +51,20 @@ namespace MelodiusAPI.Controllers
             }
         }
 
+        [HttpPut()]
+        public async Task<ActionResult> UpdatePlaylist([FromBody] PlaylistDto playlist)
+        {
+            try
+            {
+                var playlistUdpated = await _playlistsService.Update(playlist);
+                return Ok(playlistUdpated);
+            }
+            catch (Exception e)
+            {
+                var badResponse = new { error = e.Message };
+                return BadRequest(badResponse);
+            }
+        }
         [HttpPost("CompletePlaylist")]
         public async Task<ActionResult<CompletePlaylistResponse>> AddNewPlaylist(CompletePlaylistRequest playlist)
         {

@@ -1,4 +1,5 @@
-﻿using MelodiusDataTransfer;
+﻿using MelodiusDataAccess.Repository.Implementation;
+using MelodiusDataTransfer;
 using MelodiusModels;
 using MelodiusServices.Interface;
 using Microsoft.AspNetCore.Components.Forms;
@@ -49,7 +50,47 @@ namespace MelodiusAPI.Controllers
                 return BadRequest(badResponse);
             }
         }
+        //[HttpGet("SongNameQuery")]
+        //public async Task<ActionResult<Song>> GetSongName([FromQuery] string songName)
+        //{
+        //    var song= _songService.GetByname(songName);
+        //    return Ok(song);
+        //}
 
-       
+        [HttpPut()]
+        public async Task<ActionResult> UpdateSong([FromBody] SongDto song)
+        {
+            try
+            {
+                var songUdpated = await _songService.Update(song);
+                return Ok(songUdpated);
+            }
+            catch (Exception e)
+            {
+                var badResponse = new { error = e.Message };
+                return BadRequest(badResponse);
+            }
+        }
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<int>> DeleteSong(int id)
+        {
+            try 
+            {
+                var songFind=await _songService.GetById(id);
+                if(songFind== null)
+                {
+                    return NotFound($"song with id= {id}not found");
+                }
+             
+               return await _songService.Delete(id);
+               
+            }
+            catch (Exception e) 
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error deleting data");
+            }
+        }
+
     }
 }
